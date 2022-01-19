@@ -4,8 +4,8 @@ from collections import *
 fichier=open("C:/Users/MFR LE VILLAGE/Documents/Sae15.txt", "r")
 text=fichier.readlines()
 nblines = len(text)
-ipsr=''
-ipde=''
+ipsource=''
+ipdestination=''
 flag=''
 
 for ligne in text:
@@ -17,8 +17,8 @@ for ligne in text:
             if tabl[2].startswith('ns') or tabl[4].startswith('ns') or 'OK' in tabl[long-1] or 'HTTP' in tabl[long-1]:
                 break
             else:
-                ipsr=ipsr+tabl[2][0:21]+';'
-                ipde=ipde+tabl[4][0:21]+';'
+                ipsource=ipsource+tabl[2][0:21]+';'
+                ipdestination=ipdestination+tabl[4][0:21]+';'
                 if tabl[5]=='Flags':
                     flag=flag+tabl[6]+';'
                 else:
@@ -30,7 +30,7 @@ for ligne in text:
 fichier.close()
 
 fichier=open("C:/Users/MFR LE VILLAGE/Documents/Sae1.csv", "w")
-fichier.write("Liste ip sources :;"+ipsr+"\nListe ip destination"+ipde+"\nListe des flags :;"+flag)
+fichier.write("Liste ip sources :;"+ipsource+"\nListe ip destination"+ipdestination+"\nListe des flags :;"+flag)
 fichier.close()
 """
-print (ipde,"\n",ipsr,"\n",longueur, "\n",flag,"\n",list_ip,"\n",nb_ip,"\n")"""
+print (ipdestination,"\n",ipsource,"\n",longueur, "\n",flag,"\n",list_ip,"\n",nb_ip,"\n")"""
